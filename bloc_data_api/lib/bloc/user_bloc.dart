@@ -14,7 +14,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       try {
         final List<User> loadedUserList = await userRepositiry.getAllUsers();
         emit(UserLoadedState(loadedUser: loadedUserList));
-      } catch (e) {
+      } catch (_) {
         emit(UserErrorState());
       }
     });

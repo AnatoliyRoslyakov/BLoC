@@ -26,27 +26,20 @@ class UserList extends StatelessWidget {
               return Container(
                 color: index % 2 == 0 ? Colors.white : Colors.blue[50],
                 child: ListTile(
-                    leading: Text('ID: ${state.loadedUser[index].id}'),
-                    title:
-                        Center(child: Text('${state.loadedUser[index].name}')),
-                    subtitle: Column(
-                      children: [
-                        Text('${state.loadedUser[index].phone}'),
-                        Text('${state.loadedUser[index].email}'),
-                      ],
-                    )
-
-                    // title: Column(
-                    //     crossAxisAlignment: CrossAxisAlignment.center,
-                    //     children: [Text('Name'), Text('Phone'), Text('Email')]),
-                    ),
+                  leading: Text('ID: ${state.loadedUser[index].id}'),
+                  title: Center(child: Text('${state.loadedUser[index].name}')),
+                  subtitle: Column(children: [
+                    Text('${state.loadedUser[index].phone}'),
+                    Text('${state.loadedUser[index].email}')
+                  ]),
+                ),
               );
             }));
       }
       if (state is UserErrorState) {
-        const Center(child: Text('Error fetching users'));
+        Center(child: Text('Error fetching users'));
       }
-      return const SizedBox.shrink();
+      return const Center(child: SizedBox.shrink());
     });
   }
 }
